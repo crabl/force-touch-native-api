@@ -18,7 +18,6 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
     [self.window cascadeTopLeftFromPoint:NSMakePoint(50,50)];
-    [self.window makeKeyAndOrderFront:nil];
     
     id textField = [[NSTextField alloc] initWithFrame:NSMakeRect(10, 20, 200, 20)];
     [self.window.contentView addSubview:textField];
@@ -27,6 +26,7 @@
     [textField setDrawsBackground:NO];
     [textField setEditable:NO];
     [textField setSelectable:NO];
+    
     
     [self.window trackEventsMatchingMask:NSEventMaskPressure
                                  timeout:NSEventDurationForever
