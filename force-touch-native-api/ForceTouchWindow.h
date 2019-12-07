@@ -1,5 +1,5 @@
 //
-//  main.m
+//  ForceTouchWindow.h
 //  force-touch-native-api
 //
 //  Created by Chris Rabl on 12/7/19.
@@ -8,7 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-int main(int argc, const char * argv[]) {
-    @autoreleasepool {}
-    return NSApplicationMain(argc, argv);
-}
+NS_ASSUME_NONNULL_BEGIN
+
+@interface ForceTouchWindow : NSWindow
+
+@end
+
+NS_ASSUME_NONNULL_END

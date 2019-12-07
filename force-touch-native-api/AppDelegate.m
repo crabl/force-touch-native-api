@@ -17,12 +17,28 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
+    [self.window cascadeTopLeftFromPoint:NSMakePoint(50,50)];
+    [self.window makeKeyAndOrderFront:nil];
+    
+    id textField = [[NSTextField alloc] initWithFrame:NSMakeRect(10, 20, 200, 20)];
+    [self.window.contentView addSubview:textField];
+    [textField setDoubleValue:0.0];
+    [textField setBezeled:NO];
+    [textField setDrawsBackground:NO];
+    [textField setEditable:NO];
+    [textField setSelectable:NO];
+    
+    [self.window trackEventsMatchingMask:NSEventMaskPressure
+                                 timeout:NSEventDurationForever
+                                    mode:NSEventTrackingRunLoopMode
+                                 handler:^(NSEvent * _Nonnull event, BOOL * _Nonnull stop) {
+        double pressure = ceil(event.pressure * 100);
+        [textField setDoubleValue:pressure];
+    }];
 }
-
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
 }
-
 
 @end
